@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ï»¿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qmessagebox.h"
 
@@ -29,14 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton__minus,&QPushButton::clicked,this,&MainWindow::operation);
     connect(ui->pushButton__dis,  &QPushButton::clicked,this,&MainWindow::operation);
     connect(ui->pushButton__multy,&QPushButton::clicked,this,&MainWindow::operation);
-
     connect(ui->pushButton__eq,&QPushButton::clicked,this,&MainWindow::eq);
-
     connect(ui->pushButton__cls,&QPushButton::clicked,this,&MainWindow::cls);
     connect(ui->pushButton__pm,&QPushButton::clicked,this,&MainWindow::pm);
-
     connect(this,&MainWindow::form_signal,form_history,&Form::form_slot);
-
 
 }
 
@@ -110,11 +106,11 @@ void MainWindow::operation()
         {
            if (ui->result_show->text().toDouble()==0)
               {
-                QMessageBox::about(this,"A-ÿé","Íåëüçÿ äåëèòü íà íîëü");
+                QMessageBox::about(this,"Ð-ÑÐ¹","ÐÐµÐ»ÑŒÐ·Ñ Ð´ÐµÐ»Ð¸Ñ‚ÑŒ Ð½Ð° 0");
                 ui->buffer_label->setText(QString::number(number1) + _operation );
                 flag_oper=lastOperation::l_operation;
                 return;
-                //number1=0;
+
               }
             else
               number1 /= ui->result_show->text().toDouble();
@@ -136,7 +132,7 @@ void MainWindow::operation()
         ui->result_show->setText(QString::number(number1));
     }
     _operation=qobject_cast<QPushButton*>(sender())->text()[0].toLatin1();
-
+    ui->buffer_label->setText(QString::number(number1) + _operation);
 
 }
 
@@ -166,7 +162,7 @@ void MainWindow::eq()
 
             if (ui->result_show->text().toDouble()==0)
               {
-                QMessageBox::about(this,"A-ÿé","Íåëüçÿ äåëèòü íà íîëü");
+                QMessageBox::about(this,"Ð-ÑÐ¹","ÐÐµÐ»ÑŒÐ·Ñ Ð´ÐµÐ»Ð¸Ñ‚ÑŒ Ð½Ð° 0");
                 ui->buffer_label->setText(QString::number(number1) + _operation );
                 flag_oper=lastOperation::l_operation;
                 return;
