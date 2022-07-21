@@ -11,20 +11,29 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+  enum lastOperation
+  {l_operation,
+   l_number
+  };
     double number1=0;
     char _operation='\0';
-
+    lastOperation flag_oper;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void clear_history();
 private slots:
    void didgit_num();
    void didgit_remove();
    void didgit_dot();
    void operation();
    void eq();
+   void pm();
+   void cls();
    void show_history();
    void close_history();
+
+   void on_buffer_label_clicked();
 
 signals:
    void form_signal(QString str);

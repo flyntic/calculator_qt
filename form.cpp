@@ -1,4 +1,4 @@
-#include "form.h"
+﻿#include "form.h"
 #include "ui_form.h"
 
 Form::Form(QWidget *parent) :
@@ -16,4 +16,9 @@ Form::~Form()
 void Form::form_slot(QString str)
 {
   ui->listWidget->addItem(new QListWidgetItem(str));
+}
+
+void Form::clear_history()
+{
+  ui->listWidget->clear();
 }

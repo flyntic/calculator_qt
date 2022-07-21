@@ -1,4 +1,4 @@
-#ifndef FORM_H
+﻿#ifndef FORM_H
 #define FORM_H
 
 #include <QWidget>
@@ -20,7 +20,7 @@ public:
 
 public slots:
     void form_slot(QString str);
-
+    void clear_history();
 
 };
 
